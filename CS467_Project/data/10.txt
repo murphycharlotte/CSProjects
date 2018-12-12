@@ -1,0 +1,20 @@
+Kitchen
+You have entered the kitchen. The kitchen is large and vast. An open hearth sits in the center of the room. The pantry is in the corner of the room, and the door sits partially open. There are two ways out of the Kitchen: South and West. 
+The player is now in the kitchen. The open, cold, dark hearth and a pantry catch your attention. There are two ways out of the Kitchen: South and West.  
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0

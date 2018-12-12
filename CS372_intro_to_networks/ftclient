@@ -1,0 +1,320 @@
+#!/usr/bin/python
+
+# File: ftclient
+# Author: Charlotte Murphy
+# Course: CS 372 - 400
+# Due:  March 11, 2018
+# Description: Project 2 - TCP file transfer
+#   TCP Server - Client code for TCP server. Send requests for directory 
+#   contents or text files over a control connection.
+#   Receive requested data over a separate data connection.
+#   Code based on TCP client example provided in lecture #15 and project 1
+#   Additional sources listed below code
+# Usage: For use with ft_server.c, server.c, and server.h
+
+import socket
+import sys
+import select
+import os
+import pdb
+from thread import *
+
+# Function: validateArgs
+# compares values received as commandline argument to expected values
+# Pre: Either 5 or 6 args passed via command line
+#      client variables get their respective sys.arg[] value
+# Post: If values fall within expected range, program continues
+#       If not, program exits
+def validateArgs(sHost, sPort, cmd, numArgs, fName, dPort):  
+  if sPort < 1024 or 65535 < sPort:
+    SystemExit("Invalid Server Port")
+
+  if cmd != "-l" and cmd != "-g":
+    SystemExit("Invalid command")
+
+  if numArgs == 6:
+    if cm == "-l":
+        SystemExit("Correct usage: ./ftclient.py (<SERVER_HOST> <SERVER_PORT> -g <FILENAME> <DATA_PORT> " + "\n" + "           or: ./ftclient.py (<SERVER_HOST> <DATA_PORT> <SERVER_PORT> -l <DATA_PORT>" + "\n")
+    elif fName == "":
+      SystemExit("Invalid File Name")
+    else:
+      # get last four characters of file name to compare to valid .txt ending
+      fileType = fName[-4:]
+      if fileType != ".txt":
+        SystemExit("Invalid file type")
+    
+  if dPort < 1024 or 65535 < dPort:
+    SystemExit("Invalid Data Port")
+
+
+# Function: initiateContact()
+# Subfunction call to makeRequest() to sends request to server
+# Returns return value of makeRequest()
+# Pre: Validated client variables, connected to control socket
+# Post: If request is accepted, returns 0, else returns 1
+def initiateContact(sAddress, sPort, ctrlSocket, dPort, cmd, numArgs, fName):
+  reqAccepted = makeRequest(sAddress, sPort, ctrlSocket, dPort, cmd, numArgs, fName)  
+  return reqAccepted
+
+# Function: makeRequest()
+# Concatenates request parts into one string, separated by spaces, ending in "&&"
+# Sends request string to server
+# Receives and evaluates server response
+# If response is not "ACK," display server response and return -1
+# Else, return o
+# Pre: Validated client variables, connected to control socket
+# Post: Received & evaluated server response
+def makeRequest(sAddress, sPort, ctrlSocket, dPort, cmd, numArgs, fName):
+  # Request string for -g command
+  if numArgs == 6:
+    request = " " + str(dPort) + " " + cmd + " " + fName + "&&" + str('\0')
+  # request string for -l command
+  else:
+    request = " " + str(dPort) + " " + cmd + "&&" + str('\0')
+  #print request
+
+  # send request to server
+  ctrlSocket.send(request)
+  
+  # receive and evaluate server response
+  serverAck = ctrlSocket.recv(1024) 
+  serverAck = serverAck.split("\0")[0]    
+  if serverAck != "ACK":
+    #sError = 
+    print sAddress + ":" + str(sPort) + " says " + serverAck
+    return -1
+  elif serverAck == "":
+    controlSocket.close()
+    SystemExit("No ACK received from server\n")
+    return -1
+  return 0
+
+# Function: initialDataConnection
+# Sub function call to receiveData()
+# Pre: Server accepted request sent via control connection
+# Post: Received requested data from server
+def initiateDataConnection(sAddress, dPort, dConnection, cmd, fName):
+    
+  # receive data from server
+  receiveData(sAddress, dPort, dConnection, cmd, fName)  
+  #dataConnection.close()   
+
+
+# Function: receiveData()
+# Subfunction of initiateDataConnection()
+# Evaluates client command variable, and calls the appropriate receive function
+# Pre: Server accepted request sent via control connection
+# Post: Received requested data from server
+def receiveData(sAddress, dPort, dConnection, cmd, fName):
+  # function to receive file data
+  if cmd == "-g":
+    receiveFile(sAddress, dPort, fName, dConnection)
+  # function to receive directory data
+  elif cmd == "-l":
+    receiveDirectory(sAddress, dPort, dConnection)
+  else:
+    return
+
+
+# Function: receiveDirectory()
+# Subfunction of initiateDataConnection()
+# Receives a string representing server directory content
+# Displays directory contents, one file name per line
+# Pre: Server accepted request sent via control connection
+# Post: Received requested data from server
+def receiveDirectory(sAddress, dPort, dConnection):
+  print str('\n') + "Receiving directory structure from " + str(sAddress) + ":" + str(dPort)
+  chunk = ""
+  data = ""
+
+  # receive data in chunks of 1024 chars, one at a time
+  # append chunks to data string
+  while 1: 
+    chunk = dConnection.recv(1024) 
+    if not chunk:
+      break
+    data += chunk
+
+  # split string on spaces, display each file name on a new line
+  directoryContents = data.split()
+  for fileName in directoryContents:
+    print fileName
+
+# Function: receiveFile()
+# Subfunction of initiateDataConnection()
+# Receives a string representing file content
+# Saves file data to new file, creating a new file with 
+# .<pid> appended to the file name if the file name indicated in
+# client variables already exist.  
+# Pre: Server accepted request sent via control connection
+# Post: Received requested data from server
+def receiveFile(sAddress, dPort, fName, dConnection):
+  print str('\n') + "Receiving file \"" + fName +  "\" from " + str(sAddress) + ":" + str(dPort)
+  # get length
+  #length = ""
+  #length = dConnection.recv(64)
+  #if length == "":
+    #print "Failed to receive fileLength.", length
+    #sys.exit()
+  # remove nul chars from length string 
+  #length = length.split("\0")[0] # grab upto (but not including) the first NUL (if any)
+  # save length string as an int
+  #fileLength = int(length)
+  # initialize file string as empty
+  fileData = ""
+  # receive file data in one chunk at a time & append to file string
+  while 1:
+    chunk = dConnection.recv(1024) 
+    if not chunk:
+      break 
+    fileData += chunk
+  
+  # remove nul chars from file string
+  fileData = fileData.split("\0")[0] # grab upto (but not including) the first NUL (if any)
+  
+  # if file exists, append .<pid> to file name
+  while 1:
+    if os.path.isfile(fName):
+      # strip last 4 letters ".txt"
+      tempFileName = fName[:-4]
+      # add .<pid>.txt
+      tempFileName += "." + str(os.getpid()) + ".txt"
+
+      # display duplicate file warning
+      print "File named \"" + fName + "\" already exists."
+      print "Saving file data to \"" + tempFileName + "\""
+
+      # update file name
+      fName = tempFileName
+      
+      # check again
+    else:
+      break
+
+  # create new file in write mode
+  newFile = open(fName, "w+")
+  newFile.write(fileData)
+
+  print "File transfer complete."
+
+
+# Function: receiveServerError()
+# Subfunction of makeRequest()
+# Receives server error data and displays
+# host name, port name, and error message
+# Pre: Client variables validated, request sent to 
+# server on control socket, reply was not ack
+# Post: Error message received and displayed
+def receiveServerError(sAddress, sPort, ctrlSocket):
+  serverError = ""
+  tries = 0
+  while serverError == "" and tries < 100:
+    serverError = ctrlSocket.recv(1024)
+    tries += 1
+  if serverError == "":
+    SystemExit("receiveServerError() error")
+  else:  
+    print sAddress, ":", sPort, " says ", serverError
+
+
+# --------------------------------------------------------------------------------- 
+# ---------------------------------- Client Code ---------------------------------- 
+# --------------------------------------------------------------------------------- 
+
+# Verify correct number of arguments
+numArgs = len(sys.argv)
+if numArgs != 6 and numArgs != 5:
+  SystemExit("Correct usage: ./ftclient.py (<SERVER_HOST> <SERVER_PORT> -g <FILENAME> <DATA_PORT> " + "\n" + "           or: ./ftclient.py (<SERVER_HOST> <DATA_PORT> <SERVER_PORT> -l <DATA_PORT>" + "\n")
+
+# init client variables
+serverHost = sys.argv[1]
+serverPort = int(sys.argv[2])
+command = sys.argv[3]
+if numArgs == 6:
+  fileName = sys.argv[4]
+  dataPort = int(sys.argv[5])
+else:
+  fileName = ""
+  dataPort = int(sys.argv[4])
+
+# validate client variables, SystemExit if invalid arg values
+validateArgs(serverHost, serverPort, command, numArgs, fileName, dataPort)
+
+# Set up control connection
+controlSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)    # create socket
+controlSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Reuse address? 
+serverAddress = socket.gethostbyname(serverHost)                     # get server ip address
+controlSocket.connect((serverAddress,serverPort))                    # connect
+
+# send request to server 
+initiated = initiateContact(serverHost, serverPort, controlSocket, dataPort, command, numArgs, fileName)
+
+# if request was not accepted, print server error, close socket, exit
+if initiated != -1:
+  # Set up data socket
+  dataSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  dataSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  
+
+  # Bind the data socket to the port
+  # (I added the try/except statements here for debugging)
+  try:
+    dataSocket.bind((socket.gethostbyname(socket.gethostname()),dataPort))     
+  except socket.error as msg:
+    print 'Bind failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
+    dataConnection.close()
+    controlSocket.close()
+    sys.exit()
+
+  # data socket begins listening for requests
+  try:
+    dataSocket.listen(5) 
+  except socket.error as msg:
+    print 'Listen failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
+    dataConnection.close()
+    controlSocket.close()
+    sys.exit()
+  # print "Listening on host: ", dataSocket.getsockname()[0], "   port: ", dataSocket.getsockname()[1]
+  
+  # data connection waits on accept for incoming requests, returns new socket
+  try:
+    dataConnection = dataSocket.accept()[0]
+  except socket.error as msg:
+    print 'accept failed. Error Code : ' + str(msg[0]) + ' Message ' + msg[1]
+    dataConnection.close()
+    controlSocket.close()
+    sys.exit() 
+
+  # receive data over the data socket from server
+  initiateDataConnection(serverHost, dataPort, dataConnection, command, fileName)
+
+# close control socket
+controlSocket.close()
+
+# --------------------------------------------------------------------------------- 
+# ---------------------------------- End Client Code ---------------------------------- 
+# --------------------------------------------------------------------------------- 
+
+
+# Additional Sources
+#  https://www.tutorialspoint.com/python/python_files_io.htm
+#  https://dbader.org/blog/python-check-if-file-exists
+#  https://www.systutorials.com/qa/2466/how-to-get-the-running-process-pid-in-python
+#  https://stackoverflow.com/questions/663171/is-there-a-way-to-substring-a-string-in-python?noredirect=1&lq=1
+#  https://coderwall.com/p/q_rd1q/emulate-do-while-loop-in-python
+#  https://bytes.com/topic/python/answers/535741-how-do-i-converted-null-0-terminated-string-python-string
+#  https://stackoverflow.com/questions/17667903/python-socket-receive-large-amount-of-data
+#  https://stackoverflow.com/questions/20337341/how-to-print-one-word-at-a-time-on-one-line
+#  http://www.pitt.edu/~naraehan/python2/split_join.html
+#  http://thepythonguru.com/python-strings/
+#  https://www.binarytides.com/python-socket-server-code-example/
+#  https://stackoverflow.com/questions/38088342/how-to-use-same-port-twice-in-python
+#  https://docs.python.org/2/library/socket.html
+#  https://www.binarytides.com/python-socket-server-code-example/
+#  https://stackoverflow.com/questions/37360682/sockets-programming-with-python-get-the-port-of-a-server
+#  http://www.pythonforbeginners.com/concatenation/string-concatenation-and-formatting-in-python
+#  https://pymotw.com/2/socket/tcp.html
+#	 https://docs.python.org/2/howto/sockets.html
+#	 https://docs.python.org/2/library/socket.html
+#	 https://stackoverflow.com/questions/5681271/or-statement-handling-two-clauses-python
+#  https://stackoverflow.com/questions/9573244/most-elegant-way-to-check-if-the-string-is-empty-in-python
+#  https://stackoverflow.com/questions/15148496/passing-an-integer-by-reference-in-python

@@ -1,0 +1,212 @@
+painting
+Painting of the king wearing full armor riding his massive, black battle horse followed by his loyal wolfhound. The king seems to be pointing his sword at the wooden chest on the table below.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+chest
+Gilded, wooden chest sits on a side table. You notice it sits slightly open. You pull the lid up to look inside, and you see glowing, blue light inside.
+1
+9
+-1 -1 -1 -1 
+0
+0
+chandelier
+The chandelier gently sways as you reach to touch its golden framed dripped in layers of dried candle wax. It does not produce any light. The candles burned down long ago. But wait… one candle has come to life with a magical, enduring flame.
+1
+5
+-1 -1 -1 -1 
+0
+0
+bed
+There is a plush, “king” size four-poster bed in the center of the room. A chandelier holding candles hangs above it.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+throne
+You walk up the three marble stairs leading to the throne. You see it is engraved with words: loyalty, bravery and integrity.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+dog
+You lean down to pet the dog and see that it is holding a red gem in its mouth. As you scratch behind its ears, he recognizes you are an ally and drops the gem at your feet.
+1
+12
+-1 -1 -1 -1 
+0
+0
+silver
+It is hard to the gleaming, polished armor apart from the silver walls. But you spot a battle sword engraved with a dragon propped in the corner. It looks like a powerful weapon.
+1
+1
+-1 -1 -1 -1 
+0
+0
+knights
+The knights are grateful for your help to solve the puzzle, they gave you an Armor as a reward!
+1
+0
+-1 -1 -1 -1 
+1
+Puzzle1
+0
+chair
+You take a closer look at the chairs and see a mouse scurrying towards a crack in the wall.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+desk
+The dusty writing desk holds a quill and a dried-up ink-well. A magnifying glass rests on top of an ancient manuscript about dragons. The magnifying glass is exactly what you need to help you “reveal” more clues about how to escape.
+1
+4
+-1 -1 -1 -1 
+0
+0
+piano
+The piano is painted of a color of burnt sienna with intricate, scrolling patterns painted in gold.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+musician
+Musician is suprised that you solved this problem so quickly. He helped you open the locked box. You found a Dungeon Code inside.
+1
+7
+-1 -1 -1 -1 
+1
+Puzzle2
+0
+fog
+Feeling your way around the courtyard in the dense fog, you stumble upon loose, crumbling stone in the wall. You need something to help you LOOK AT the STONE more closely - something that helps you see small things.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+stone
+You used Magnifying Glass to examine the stone castle walls and notice one stone is loose and pulled slightly away from the mortar. The crumbling corner reveals a hidden cavity behind it. But the crack is so small, you need something to help you see it closer.
+1
+11
+4 -1 -1 -1 
+0
+0
+hedges
+A dense row of evergreen hedges borders the entire garden, blocking you from leaving the castle grounds.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+fountain
+The base of the fountain and the surrounding steps that elevate it, are hexagonal. A pedestal rises from the center, lifting a stone bowl up into the air. The fountain is dry, so you must climb up the stairs and onto the base to look inside the stone bowl. You see a green gem sitting at the bottom of the bowl. Another piece of the king’s treasure!
+1
+10
+-1 -1 -1 -1 
+0
+0
+table
+The table's carved legs are in the shape of dragons standing on their hind legs with their mouths wide, breathing flames straight up to the sky. The flames support the table top. The border of the table top is engraved with the words to an ancient spell to enslave a dragon for eternity.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+wizard
+A wizard sits at the table pouring over the inscribed text trying to learn how to break the curse. He is muttering the words trying to learn the correct incantation.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+walls
+The decor is the most beautiful in this room. Even the window frame mouldings present themselves with exquisite detail. There seems to be something hastily carved in the nearest window frame. It says, “Go East to the Kitchen.” But you are thirsty, so be sure to check the table for any beverages before you go.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+food
+Tables set with plates of half eaten food what was a feast; plates of half eaten food. Goblet on its side with the residue of a red liquid and a chunk of what appears to be ice in it. But the ice would have melted long ago, and it is faceted perfectly. Could it be something else?
+1
+13
+-1 -1 -1 -1 
+0
+0
+pantry
+The dark pantry is filled floor to ceiling with bare shelves. The empty, except for cobwebs and shadows.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+hearth
+A roaring fire suddenly sparks to life in the hearth... Ghosts are living in this kitchen! Could it be the ghost of the former king???
+1
+-1
+-1 -1 -1 -1 
+0
+0
+Horses
+The ghostly horses are no ordinary war horses. Their ghostly, transparent forms have wings. They are content in their quarters waiting for their masters to return and mean you no harm. 
+1
+-1
+-1 -1 -1 -1 
+0
+0
+loft
+As you climb the ladder to the hayloft, your eyes become level with the floor of the nearly empty loft area. You notice a yellow, sparkling object nestled in some hay in the corner. You found another piece of the king’s hidden treasure!
+1
+14
+-1 -1 -1 -1 
+0
+0
+gold
+Piles of gold coins tower over you, spilling gold and jewelry across the floor. It feels like you are standing on a priceless carpet which are made by treasure! You are shocked by how amazing the treasury it is, but for now, all you want to know is how to escape. Do you have enough gems to break the curse? Unfortunately, there aren't any gems left in the treasury. The king hid them throughout the castle before he disappeared.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+door
+The door to the dungeon is marked with a warning. There is a fire breathing dragon imprisoned there. You surely risk death if you enter without protection and a mighty weapon.
+1
+-1
+-1 -1 -1 -1 
+0
+0
+shackle
+The charred remains of a human skeleton hang loosely from shackles attached to the wall. Prisoners in this dungeon did not live long. Do you have what it takes to escape? Or will you become a prisoner and be sentenced to a fiery death, as well?
+1
+-1
+-1 -1 -1 -1 
+0
+0
+dragon
+The dragon is free of the curse and his b. He thanks you and stretches his wings. The urse broken, he can finally use his strength to break through the ceiling. You watch him disappear into the clouds. And there is the gatehouse! You can see it! The top of the gatehouse!! The door to the gatehouse and out of the castle must be hidden in a room close by!!!
+1
+6
+-1 1 -1 -1 
+0
+0
+guard
+guard
+1
+-1
+6 -1 -1 -1 
+0
+0
+windlass
+Windlass to raise and lower drawbridge 
+1
+-1
+7 -1 -1 -1 
+0
+0

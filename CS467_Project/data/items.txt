@@ -1,0 +1,32 @@
+Armor
+Armor - Magical armor with powers to protect its wearer from anything, even the cursed dragon's fire breath.
+Sword
+Sword - A mighty sword capable of slicing through cursed chains, like the chains that keep the dragon bound in the dungeon.
+iPad
+iPad description
+Poison
+Poison - This deadly poison is a rare ingredient coveted by wizards throughout the land.
+Magnifying Glass
+Magnifying Glass - A magnifying glass can help you see into small openings.
+Candle
+Cangle - A magical candle with a cold, enduring flame.
+Golden Key
+GOlden Key - The key required to open cursed locks.
+Dungeon Code
+Dungeon Code - The code is: CODE
+Gatehouse Code
+Gatehouse Code description
+Blue Gem
+Blue Gem - A magical Blue Gem that was part of the king's treasure. He concealed it in his castle before the evil wizard could cure him, in hopes that someone would find it and break the curse.
+Green Gem
+Green Gem - A magical Green Gem that was part of the king's treasure. He concealed it in his castle before the evil wizard could cure him, in hopes that someone would find it and break the curse.
+Purple Gem
+Purple Gem - A magical Purple Gem that was part of the king's treasure. He concealed it in his castle before the evil wizard could cure him, in hopes that someone would find it and break the curse.
+Red Gem
+Red Gem - A magical Red Gem that was part of the king's treasure. He concealed it in his castle before the evil wizard could cure him, in hopes that someone would find it and break the curse.
+White Gem
+White Gem - A magical White Gem that was part of the king's treasure. He concealed it in his castle before the evil wizard could cure him, in hopes that someone would find it and break the curse.
+Yellow Gem
+Yellow Gem - A magical Yellow Gem that was part of the king's treasure. He concealed it in his castle before the evil wizard could cure him, in hopes that someone would find it and break the curse.
+Rainbow Gem
+RainBow Gem - The mythical Rainbow Gem. The breaker of all curses, and the liberator of all enslaved. This was the ultimate crowning jewel in the king's treasure. Whoever possess this powerful artifact can use it to break curses and free those who are imprisoned. The bearer may travel to any room in the castle, at will, and take any item, regardless of availability, at will.

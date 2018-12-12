@@ -1,0 +1,20 @@
+Gatehouse
+You approach the Gatehouse with guards. These guards have transparent flesh and are far from human anymore. They throw rocks that fly past the player. “We are trapped here!,” they say. “We could not escape and are cursed! We will not allow you to escape until we have our freedom!”  Chained to the Gatehouse by shackles, the Golden Key is needed to free them from their shackles. Once the guards are released, the player goes inside of the Gatehouse. There is the exit door! A code is needed to open the door. The player can see the drawbridge on the other side of the door, an escape is near! If the player has both pieces of the door code, the door will open and a windlass lowers the drawbridge (West). 
+The player has reached the Gatehouse. First, the player must free the guards by using the Golden Key. Then, the player must use both codes acquired to open the exit door (West). After doing this, the drawbridge is lowered and the player wins!
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0

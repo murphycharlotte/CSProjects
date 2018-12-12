@@ -1,0 +1,21 @@
+  n["GEM"] = "GEM";
+	n["TREASURE"] = "GEM";
+	n["COIN"] = "GEM"
+
+	n["CANDLE"] = "CANDLE";
+	n["FLAME"] = "CANDLE";
+	n["LIGHT"] = "CANDLE"
+	 
+	n["WEAPON"] = "SWORD"
+	n["SWORD"] = "SWORD"
+	n["KNIFE"] = "SWORD" 
+
+	n["POTION"] = "POTION"
+	n["POISON"] = "POTION"
+	n["LIQUID"] = "POTION"
+	 
+	n["KEY"] = "KEY"
+	
+	n["ARMOR"] = "ARMOR"
+	n["CLOTHING"] = "ARMOR"
+	n["GEAR"] = "ARMOR" 

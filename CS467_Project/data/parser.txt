@@ -1,0 +1,51 @@
+PARSER
+Using: Boost
+  BOOST/ALGORITHM/STRING.HPP
+  https://theboostcpplibraries.com/boost.stringalgorithms
+
+
+// Semantics. Words that can be accepted by the user to function
+
+- Parser Words Cheat Sheet
+
+   WORD         USER CAN INPUT
+   
+   Help         Help, ?, Question  
+   Inventory    Inventory, bag, Display
+   Take         Take, Pick up, grab, pickup, get, obtain, secure, acquire
+   Go           go, go to, go in, move, travel to, head, head to, move to, walk, walk to, going, moving
+   Put          put, place, drop, leave
+   Look         look
+   Drink        drink, sip, consume, eat
+   Wear         wear, dress
+   Steal        Steal
+   Talk         talk, talk to, conversation, speak, speak to, converse
+   Open         Open, enter
+   climb        climb
+   remove       remove, delete
+   Look at      Look at, inspect, search, look in
+   
+Words like Save, Load, Inventory, Steal and Help can be typed in as a single word. Other works such as Go, Drink etc, will require an object (objectOne)[example: Go North] or two objects with a preposition (objectOne "with" objectTwo)[example: remove sword from inventory] to be mentioned. 
+
+These words are filtered out:
+If a user types them, they will be ignored.
+The (with a space prior), The (with a space after), (.), ('s) and (!). 
+  
+   Prepositions:
+   
+   bool hasPreposition;
+   
+  std::string preposition;
+  std::string firstObject;
+  std::string secondObject;
+  
+  
+ParsedInput  Separate(std::string input);
+ParsedInput ValidateInput(ParsedInput p);
+std::string Capitalize (std::string str);
+bool FindPreposition (std::string input);
+
+
+	boost::trim(input); 
+  // Trim algorithms are used to remove trailing and leading spaces from a sequence (string). 
+   

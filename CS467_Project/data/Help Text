@@ -1,0 +1,24 @@
+Help Text // For use when player types 'help'
+
+go [direction] : Moves a player in the direction that they give (north, east, south, west)
+look : gives the long format description of the player's current room
+look at [object] : gives a specific description of a selected object
+help : gives general clues to user input
+inventory : displays a list of the items in the player's posession
+take [object] : adds the specific object to the player's posession
+open [object] : opens something specific such as a door 
+climb : lets player climb to reveal something
+remove [object] : removes object from the player's bag
+put [object] : allows player to use item in the bag 
+wear [object] : allows player to wear an item
+drink [object] : can drink something                                              
+talk : player can choose to converse with determined characters in rooms
+steal [object] : player can choose to steal an item without taking part in a challenge.  
+
+To Discuss:
+  - Using steal as said above
+  - drink -- is there a magic elixer somewhere? The kitchen? can they unlock all doors if they drink it like a cheat?
+  - Difference between put and take.... is this for 'put down [object]' or are we using 'remove [object]' -- clarify difference.
+  
+  
+ 

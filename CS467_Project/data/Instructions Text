@@ -1,0 +1,16 @@
+Instructions Text
+
+Welcome to Darkwood Castle, a text-based adventure game. 
+To play this game, you start out in a room. You will decide to travel to various other rooms. 
+There will be text that describes each room, some items that it contains and some directions in which you can travel.
+There may be items that you can 'get', or you can examine something by saying 'look at'.
+You can move from room to room by saying (n)orth, (s)uth, (e)ast, (w)est, (u)p or (d)own or (c)limb. 
+There may be somewhere near 15 rooms, so you will probably need to create your own map of visited locations. 
+There will be 10+ items to interact with, so you will probably need to create notes on these items.
+You can check to see what you are carrying by typing '(i)nventory'.
+You will be limited by the number of items that can be carried, and may be required to leave some before moving on.
+Some places are dark, but you can find a candle to get through.
+There are goals in the game, for example to retrieve a set number of gems.
+There will be challenges to acquire certain items, and even a bonus treasure to find.
+When you reach all goals and travel through the rooms, there is a final exit that will set you free.
+
